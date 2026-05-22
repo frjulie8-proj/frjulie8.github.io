@@ -1,0 +1,18 @@
+[project]
+name = "frjulie8-github-io"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "NGO Tran Phuong Ngoc",email = "frjulie8@bu.edu"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "frjulie8"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
