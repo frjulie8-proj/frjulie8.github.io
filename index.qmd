@@ -1,5 +1,0 @@
----
-title: "Welcome to My Website"
----
-
-Hello, World! Welcome to my Quarto website.
