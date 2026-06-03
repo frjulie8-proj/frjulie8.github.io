@@ -1,0 +1,191 @@
+---
+title: "Spark SQL Job Data Analysis"
+author: "Julie NGO TRAN"
+format: html
+embed-resources: true
+date: today
+date-format: long
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Setup: Initialize Spark Session
+
+```{python}
+from pyspark.sql import SparkSession
+
+# Start a Spark session
+spark = SparkSession.builder \
+    .appName("JobPostingsAnalysis") \
+    .getOrCreate()
+
+# Suppress verbose Spark logs
+spark.sparkContext.setLogLevel("ERROR")
+
+print("Spark session started successfully.")
+print(f"Spark version: {spark.version}")
+```
+
+## Load and Prepare the Dataset
+
+```{python}
+# Load the CSV file into a Spark DataFrame
+# Update this path if your CSV is located elsewhere
+df = spark.read \
+    .option("header", "true") \
+    .option("inferSchema", "true") \
+    .option("multiLine", "true") \
+    .option("escape", "\"") \
+    .csv("/home/ubuntu/a02-sum26-frjulie8-proj/data/lightcast_job_postings.csv")
+
+# Register the DataFrame as a temporary SQL table
+df.createOrReplaceTempView("jobs")
+
+print("Dataset loaded and registered as SQL table 'jobs'.")
+```
+
+## Verify the Data
+
+```{python}
+# Display the first five rows
+print("First 5 rows:")
+df.show(5, truncate=True)
+```
+
+```{python}
+# Show the schema (column names & data types)
+print("Schema:")
+df.printSchema()
+```
+
+---
+
+## Query 1: How many job postings are in the dataset?
+
+```{python}
+result_q1 = spark.sql("""
+    SELECT COUNT(*) AS total_job_postings
+    FROM jobs
+""")
+
+result_q1.show()
+```
+
+**Insight:** This query counts the total number of rows in the dataset, giving us the overall size of the Lightcast job postings collection. Each row represents one job posting.
+
+---
+
+## Query 2: Find the top 5 most common job titles
+
+```{python}
+result_q2 = spark.sql("""
+    SELECT TITLE_NAME, COUNT(*) AS posting_count
+    FROM jobs
+    GROUP BY TITLE_NAME
+    ORDER BY posting_count DESC
+    LIMIT 5
+""")
+
+result_q2.show(truncate=False)
+```
+
+**Insight:** This query identifies the most in-demand roles in the dataset. The top job titles reveal which positions employers are hiring for most frequently, offering a snapshot of labor market demand.
+
+---
+
+## Query 3: Find the average salary for each employment type
+
+```{python}
+result_q3 = spark.sql("""
+    SELECT 
+        EMPLOYMENT_TYPE_NAME,
+        ROUND(AVG(SALARY), 2) AS avg_salary,
+        COUNT(*) AS job_count
+    FROM jobs
+    WHERE SALARY IS NOT NULL
+    GROUP BY EMPLOYMENT_TYPE_NAME
+    ORDER BY avg_salary DESC
+""")
+
+result_q3.show(truncate=False)
+```
+
+**Insight:** Comparing average salaries across employment types (e.g., Full-time vs. Part-time vs. Contract) highlights compensation differences. Full-time roles typically command higher average salaries than part-time or contract positions.
+
+---
+
+## Query 4: What five states have the most job postings?
+
+```{python}
+result_q4 = spark.sql("""
+    SELECT STATE_NAME, COUNT(*) AS posting_count
+    FROM jobs
+    WHERE STATE_NAME IS NOT NULL
+    GROUP BY STATE_NAME
+    ORDER BY posting_count DESC
+    LIMIT 5
+""")
+
+result_q4.show(truncate=False)
+```
+
+**Insight:** This query surfaces the states with the highest concentration of job postings, indicating regional hiring activity. States like California, Texas, and New York typically dominate job posting volumes due to their large economies.
+
+---
+
+## Query 5: Salary range (max − min) for each job title in California
+
+```{python}
+result_q5 = spark.sql("""
+    SELECT 
+        TITLE_NAME,
+        MAX(SALARY) AS max_salary,
+        MIN(SALARY) AS min_salary,
+        ROUND(MAX(SALARY) - MIN(SALARY), 2) AS salary_range
+    FROM jobs
+    WHERE STATE_NAME = 'California'
+      AND SALARY IS NOT NULL
+    GROUP BY TITLE_NAME
+    ORDER BY salary_range DESC
+    LIMIT 10
+""")
+
+result_q5.show(truncate=False)
+```
+
+**Insight:** A wide salary range for a job title in California suggests significant variation across employers or experience levels. Roles with large ranges (like Software Engineer or Data Scientist) often have tiered compensation structures.
+
+---
+
+## Query 6: Top 5 industries with highest average salaries and more than 100 job postings
+
+```{python}
+result_q6 = spark.sql("""
+    SELECT 
+        NAICS2_NAME AS industry,
+        ROUND(AVG(SALARY), 2) AS avg_salary,
+        COUNT(*) AS job_count
+    FROM jobs
+    WHERE SALARY IS NOT NULL
+      AND NAICS2_NAME IS NOT NULL
+    GROUP BY NAICS2_NAME
+    HAVING COUNT(*) > 100
+    ORDER BY avg_salary DESC
+    LIMIT 5
+""")
+
+result_q6.show(truncate=False)
+```
+
+**Insight:** This query filters to industries with meaningful sample sizes (>100 postings) and ranks them by average salary. High-paying industries with many postings — such as Finance or Technology — represent the most lucrative and active sectors in the labor market.
+
+---
+
+## Close Spark Session
+
+```{python}
+spark.stop()
+print("Spark session stopped.")
+```
