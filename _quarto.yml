@@ -11,7 +11,7 @@ website:
         text: Assignment 1
       - href: "Module3Lab1/spark_analysis.qmd"
         text: Module 3 Lab 1
-      - href: A02-frjulie8.html
+      - href: A02-frjulie8.ipynb
         text: Assignment 2
 format:
   html:
@@ -20,3 +20,5 @@ format:
       - brand
     css: styles.css
     toc: true
+execute:
+  freeze: true
