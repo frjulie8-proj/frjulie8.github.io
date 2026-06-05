@@ -1,7 +1,7 @@
 ---
-title: "website"
+title: "Julie Ngo Tran | Cloud Computing & Big Data"
 ---
 
-This is a Quarto website.
+This is Julie Ngo Tran's course website for **Cloud Computing and Big Data** at **Boston University MET, Summer 2026**.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Use the navbar above to navigate assignments and lab work.
