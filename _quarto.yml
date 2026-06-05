@@ -11,6 +11,8 @@ website:
         text: Assignment 1
       - href: "Module3Lab1/spark_analysis.qmd"
         text: Module 3 Lab 1
+      - href: A02-frjulie8.html
+        text: Assignment 2
 format:
   html:
     theme:
