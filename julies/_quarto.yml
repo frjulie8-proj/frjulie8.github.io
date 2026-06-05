@@ -8,6 +8,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: A02-frjulie8.qmd
+        text: Assignment 2
 
 format:
   html:
@@ -16,6 +18,3 @@ format:
       - brand
     css: styles.css
     toc: true
-
-
-
