@@ -77,13 +77,6 @@
     "text": "Close Spark Session\n\nspark.stop()\nprint(\"Spark session stopped.\")"
   },
   {
-    "objectID": "julies/index.html",
-    "href": "julies/index.html",
-    "title": "Welcome to My Website",
-    "section": "",
-    "text": "Hello, World!\nWelcome to my Quarto website."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -91,17 +84,10 @@
     "text": "About this site"
   },
   {
-    "objectID": "julies/about.html",
-    "href": "julies/about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "website",
+    "title": "Julie Ngo Tran | Cloud Computing & Big Data",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "This is Julie Ngo Tran’s course website for Cloud Computing and Big Data at Boston University MET, Summer 2026.\nUse the navbar above to navigate assignments and lab work."
   }
 ]
