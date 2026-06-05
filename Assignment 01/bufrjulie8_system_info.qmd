@@ -2,8 +2,13 @@
 title: "Assignment 01"
 subtitle: "System Information Proof"
 author: "Julie"
-format: 
-  docx: default
+format:
+  html:
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
 ---
 
 ```{python}
