@@ -1,7 +1,84 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "Module3Lab1/spark_analysis.html",
+    "href": "Module3Lab1/spark_analysis.html",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "",
+    "text": "from pyspark.sql import SparkSession\n\n# Start a Spark session\nspark = SparkSession.builder \\\n    .appName(\"JobPostingsAnalysis\") \\\n    .getOrCreate()\n\n# Suppress verbose Spark logs\nspark.sparkContext.setLogLevel(\"ERROR\")\n\nprint(\"Spark session started successfully.\")\nprint(f\"Spark version: {spark.version}\")"
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#setup-initialize-spark-session",
+    "href": "Module3Lab1/spark_analysis.html#setup-initialize-spark-session",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "",
+    "text": "from pyspark.sql import SparkSession\n\n# Start a Spark session\nspark = SparkSession.builder \\\n    .appName(\"JobPostingsAnalysis\") \\\n    .getOrCreate()\n\n# Suppress verbose Spark logs\nspark.sparkContext.setLogLevel(\"ERROR\")\n\nprint(\"Spark session started successfully.\")\nprint(f\"Spark version: {spark.version}\")"
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#load-and-prepare-the-dataset",
+    "href": "Module3Lab1/spark_analysis.html#load-and-prepare-the-dataset",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Load and Prepare the Dataset",
+    "text": "Load and Prepare the Dataset\n\n# Load the CSV file into a Spark DataFrame\n# Update this path if your CSV is located elsewhere\ndf = spark.read \\\n    .option(\"header\", \"true\") \\\n    .option(\"inferSchema\", \"true\") \\\n    .option(\"multiLine\", \"true\") \\\n    .option(\"escape\", \"\\\"\") \\\n    .csv(\"/home/ubuntu/a02-sum26-frjulie8-proj/data/lightcast_job_postings.csv\")\n\n# Register the DataFrame as a temporary SQL table\ndf.createOrReplaceTempView(\"jobs\")\n\nprint(\"Dataset loaded and registered as SQL table 'jobs'.\")"
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#verify-the-data",
+    "href": "Module3Lab1/spark_analysis.html#verify-the-data",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Verify the Data",
+    "text": "Verify the Data\n\n# Display the first five rows\nprint(\"First 5 rows:\")\ndf.show(5, truncate=True)\n\n\n# Show the schema (column names & data types)\nprint(\"Schema:\")\ndf.printSchema()"
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#query-1-how-many-job-postings-are-in-the-dataset",
+    "href": "Module3Lab1/spark_analysis.html#query-1-how-many-job-postings-are-in-the-dataset",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Query 1: How many job postings are in the dataset?",
+    "text": "Query 1: How many job postings are in the dataset?\n\nresult_q1 = spark.sql(\"\"\"\n    SELECT COUNT(*) AS total_job_postings\n    FROM jobs\n\"\"\")\n\nresult_q1.show()\n\nInsight: This query counts the total number of rows in the dataset, giving us the overall size of the Lightcast job postings collection. Each row represents one job posting."
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#query-2-find-the-top-5-most-common-job-titles",
+    "href": "Module3Lab1/spark_analysis.html#query-2-find-the-top-5-most-common-job-titles",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Query 2: Find the top 5 most common job titles",
+    "text": "Query 2: Find the top 5 most common job titles\n\nresult_q2 = spark.sql(\"\"\"\n    SELECT TITLE_NAME, COUNT(*) AS posting_count\n    FROM jobs\n    GROUP BY TITLE_NAME\n    ORDER BY posting_count DESC\n    LIMIT 5\n\"\"\")\n\nresult_q2.show(truncate=False)\n\nInsight: This query identifies the most in-demand roles in the dataset. The top job titles reveal which positions employers are hiring for most frequently, offering a snapshot of labor market demand."
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#query-3-find-the-average-salary-for-each-employment-type",
+    "href": "Module3Lab1/spark_analysis.html#query-3-find-the-average-salary-for-each-employment-type",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Query 3: Find the average salary for each employment type",
+    "text": "Query 3: Find the average salary for each employment type\n\nresult_q3 = spark.sql(\"\"\"\n    SELECT \n        EMPLOYMENT_TYPE_NAME,\n        ROUND(AVG(SALARY), 2) AS avg_salary,\n        COUNT(*) AS job_count\n    FROM jobs\n    WHERE SALARY IS NOT NULL\n    GROUP BY EMPLOYMENT_TYPE_NAME\n    ORDER BY avg_salary DESC\n\"\"\")\n\nresult_q3.show(truncate=False)\n\nInsight: Comparing average salaries across employment types (e.g., Full-time vs. Part-time vs. Contract) highlights compensation differences. Full-time roles typically command higher average salaries than part-time or contract positions."
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#query-4-what-five-states-have-the-most-job-postings",
+    "href": "Module3Lab1/spark_analysis.html#query-4-what-five-states-have-the-most-job-postings",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Query 4: What five states have the most job postings?",
+    "text": "Query 4: What five states have the most job postings?\n\nresult_q4 = spark.sql(\"\"\"\n    SELECT STATE_NAME, COUNT(*) AS posting_count\n    FROM jobs\n    WHERE STATE_NAME IS NOT NULL\n    GROUP BY STATE_NAME\n    ORDER BY posting_count DESC\n    LIMIT 5\n\"\"\")\n\nresult_q4.show(truncate=False)\n\nInsight: This query surfaces the states with the highest concentration of job postings, indicating regional hiring activity. States like California, Texas, and New York typically dominate job posting volumes due to their large economies."
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#query-5-salary-range-max-min-for-each-job-title-in-california",
+    "href": "Module3Lab1/spark_analysis.html#query-5-salary-range-max-min-for-each-job-title-in-california",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Query 5: Salary range (max − min) for each job title in California",
+    "text": "Query 5: Salary range (max − min) for each job title in California\n\nresult_q5 = spark.sql(\"\"\"\n    SELECT \n        TITLE_NAME,\n        MAX(SALARY) AS max_salary,\n        MIN(SALARY) AS min_salary,\n        ROUND(MAX(SALARY) - MIN(SALARY), 2) AS salary_range\n    FROM jobs\n    WHERE STATE_NAME = 'California'\n      AND SALARY IS NOT NULL\n    GROUP BY TITLE_NAME\n    ORDER BY salary_range DESC\n    LIMIT 10\n\"\"\")\n\nresult_q5.show(truncate=False)\n\nInsight: A wide salary range for a job title in California suggests significant variation across employers or experience levels. Roles with large ranges (like Software Engineer or Data Scientist) often have tiered compensation structures."
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#query-6-top-5-industries-with-highest-average-salaries-and-more-than-100-job-postings",
+    "href": "Module3Lab1/spark_analysis.html#query-6-top-5-industries-with-highest-average-salaries-and-more-than-100-job-postings",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Query 6: Top 5 industries with highest average salaries and more than 100 job postings",
+    "text": "Query 6: Top 5 industries with highest average salaries and more than 100 job postings\n\nresult_q6 = spark.sql(\"\"\"\n    SELECT \n        NAICS2_NAME AS industry,\n        ROUND(AVG(SALARY), 2) AS avg_salary,\n        COUNT(*) AS job_count\n    FROM jobs\n    WHERE SALARY IS NOT NULL\n      AND NAICS2_NAME IS NOT NULL\n    GROUP BY NAICS2_NAME\n    HAVING COUNT(*) &gt; 100\n    ORDER BY avg_salary DESC\n    LIMIT 5\n\"\"\")\n\nresult_q6.show(truncate=False)\n\nInsight: This query filters to industries with meaningful sample sizes (&gt;100 postings) and ranks them by average salary. High-paying industries with many postings — such as Finance or Technology — represent the most lucrative and active sectors in the labor market."
+  },
+  {
+    "objectID": "Module3Lab1/spark_analysis.html#close-spark-session",
+    "href": "Module3Lab1/spark_analysis.html#close-spark-session",
+    "title": "Spark SQL Job Data Analysis",
+    "section": "Close Spark Session",
+    "text": "Close Spark Session\n\nspark.stop()\nprint(\"Spark session stopped.\")"
+  },
+  {
+    "objectID": "julies/index.html",
+    "href": "julies/index.html",
     "title": "Welcome to My Website",
     "section": "",
     "text": "Hello, World!\nWelcome to my Quarto website."
@@ -12,5 +89,19 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "julies/about.html",
+    "href": "julies/about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "website",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]

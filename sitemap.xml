@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://frjulie8-proj.github.io/frjulie8.github.io/index.html</loc>
-    <lastmod>2026-06-05T03:56:32.012Z</lastmod>
+    <loc>https://frjulie8-proj.github.io/frjulie8.github.io/Module3Lab1/spark_analysis.html</loc>
+    <lastmod>2026-06-05T04:34:39.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://frjulie8-proj.github.io/frjulie8.github.io/julies/index.html</loc>
+    <lastmod>2026-06-05T04:34:39.970Z</lastmod>
   </url>
   <url>
     <loc>https://frjulie8-proj.github.io/frjulie8.github.io/about.html</loc>
-    <lastmod>2026-06-05T03:56:32.012Z</lastmod>
+    <lastmod>2026-06-05T04:34:39.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://frjulie8-proj.github.io/frjulie8.github.io/julies/about.html</loc>
+    <lastmod>2026-06-05T04:34:39.970Z</lastmod>
+  </url>
+  <url>
+    <loc>https://frjulie8-proj.github.io/frjulie8.github.io/index.html</loc>
+    <lastmod>2026-06-05T04:34:39.965Z</lastmod>
   </url>
 </urlset>
