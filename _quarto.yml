@@ -1,6 +1,5 @@
 project:
   type: website
-
 website:
   title: "website"
   navbar:
@@ -8,7 +7,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-
+      - href: A02-frjulie8.qmd
+        text: Assignment 2
 format:
   html:
     theme:
@@ -16,6 +16,3 @@ format:
       - brand
     css: styles.css
     toc: true
-
-
-
