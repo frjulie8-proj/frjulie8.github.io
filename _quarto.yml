@@ -13,6 +13,8 @@ website:
         text: Module 3 Lab 1
       - href: A02-frjulie8.ipynb
         text: Assignment 2
+      - href: A03-frjulie8.ipynb
+        text: Assignment 3
 format:
   html:
     theme:
