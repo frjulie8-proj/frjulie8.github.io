@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Julie NGO TRAN">
-<meta name="dcterms.date" content="2026-06-10">
+<meta name="dcterms.date" content="2026-06-14">
 
 <title>Spark SQL Job Data Analysis – website</title>
 <style>
@@ -4044,7 +4044,7 @@ vertical-align: -.125em;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Julie Ngo Tran</span>
+    <span class="navbar-title">website</span>
     </a>
   </div>
             <div id="quarto-search" class title="Search"></div>
@@ -4054,29 +4054,29 @@ vertical-align: -.125em;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html">
-<span class="menu-text">About Me</span></a>
-  </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle active" href="#" id="nav-education" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
-<span class="menu-text">Education</span></a>
-    <ul class="dropdown-menu" aria-labelledby="nav-education">
-      <li><h6 class="dropdown-header">AD688 Big Data &amp; Cloud Analytics</h6></li>
-      <li><a class="dropdown-item active" href="../Module3Lab1/spark_analysis.html">Module 3 Lab 1</a></li>
-      <li><a class="dropdown-item" href="../A02-frjulie8.html">Assignment 2</a></li>
-    </ul>
-  </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-<span class="menu-text">Projects</span></a>
-    <ul class="dropdown-menu" aria-labelledby="nav-projects">
-      <li><a class="dropdown-item" href="../projects/minecraft-auto-close.html">Minecraft Auto Close</a></li>
-    </ul>
-  </li>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Assignment 01/bufrjulie8_system_info.html"> 
+<span class="menu-text">Assignment 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../Module3Lab1/spark_analysis.html" aria-current="page"> 
+<span class="menu-text">Module 3 Lab 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../A02-frjulie8.html"> 
+<span class="menu-text">Assignment 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../A03-frjulie8.html"> 
+<span class="menu-text">Assignment 3</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4128,7 +4128,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 10, 2026</p>
+      <p class="date">June 14, 2026</p>
     </div>
   </div>
   
@@ -4142,7 +4142,7 @@ vertical-align: -.125em;
 
 <section id="setup-initialize-spark-session" class="level2">
 <h2 class="anchored" data-anchor-id="setup-initialize-spark-session">Setup: Initialize Spark Session</h2>
-<div id="eac9e4c5" class="cell">
+<div id="1071100e" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Start a Spark session</span></span>
@@ -4159,7 +4159,7 @@ vertical-align: -.125em;
 </section>
 <section id="load-and-prepare-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="load-and-prepare-the-dataset">Load and Prepare the Dataset</h2>
-<div id="66dd4472" class="cell">
+<div id="51dd53a1" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the CSV file into a Spark DataFrame</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Update this path if your CSV is located elsewhere</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> spark.read <span class="op">\</span></span>
@@ -4177,12 +4177,12 @@ vertical-align: -.125em;
 </section>
 <section id="verify-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="verify-the-data">Verify the Data</h2>
-<div id="643b52b5" class="cell">
+<div id="89da1da1" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first five rows</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;First 5 rows:&quot;</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df.show(<span class="dv">5</span>, truncate<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="bcc05d01" class="cell">
+<div id="59b6415a" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the schema (column names &amp; data types)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Schema:&quot;</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df.printSchema()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -4191,7 +4191,7 @@ vertical-align: -.125em;
 </section>
 <section id="query-1-how-many-job-postings-are-in-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="query-1-how-many-job-postings-are-in-the-dataset">Query 1: How many job postings are in the dataset?</h2>
-<div id="dae8d163" class="cell">
+<div id="979490e2" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>result_q1 <span class="op">=</span> spark.sql(<span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT COUNT(*) AS total_job_postings</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM jobs</span></span>
@@ -4204,7 +4204,7 @@ vertical-align: -.125em;
 </section>
 <section id="query-2-find-the-top-5-most-common-job-titles" class="level2">
 <h2 class="anchored" data-anchor-id="query-2-find-the-top-5-most-common-job-titles">Query 2: Find the top 5 most common job titles</h2>
-<div id="64746e13" class="cell">
+<div id="e543b58e" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>result_q2 <span class="op">=</span> spark.sql(<span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT TITLE_NAME, COUNT(*) AS posting_count</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM jobs</span></span>
@@ -4220,7 +4220,7 @@ vertical-align: -.125em;
 </section>
 <section id="query-3-find-the-average-salary-for-each-employment-type" class="level2">
 <h2 class="anchored" data-anchor-id="query-3-find-the-average-salary-for-each-employment-type">Query 3: Find the average salary for each employment type</h2>
-<div id="1139a7df" class="cell">
+<div id="fc82ded5" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>result_q3 <span class="op">=</span> spark.sql(<span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT </span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">        EMPLOYMENT_TYPE_NAME,</span></span>
@@ -4239,7 +4239,7 @@ vertical-align: -.125em;
 </section>
 <section id="query-4-what-five-states-have-the-most-job-postings" class="level2">
 <h2 class="anchored" data-anchor-id="query-4-what-five-states-have-the-most-job-postings">Query 4: What five states have the most job postings?</h2>
-<div id="31553f16" class="cell">
+<div id="db1a3c06" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>result_q4 <span class="op">=</span> spark.sql(<span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT STATE_NAME, COUNT(*) AS posting_count</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM jobs</span></span>
@@ -4256,7 +4256,7 @@ vertical-align: -.125em;
 </section>
 <section id="query-5-salary-range-max-min-for-each-job-title-in-california" class="level2">
 <h2 class="anchored" data-anchor-id="query-5-salary-range-max-min-for-each-job-title-in-california">Query 5: Salary range (max − min) for each job title in California</h2>
-<div id="0b3bbcd8" class="cell">
+<div id="af6e838d" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>result_q5 <span class="op">=</span> spark.sql(<span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT </span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">        TITLE_NAME,</span></span>
@@ -4278,7 +4278,7 @@ vertical-align: -.125em;
 </section>
 <section id="query-6-top-5-industries-with-highest-average-salaries-and-more-than-100-job-postings" class="level2">
 <h2 class="anchored" data-anchor-id="query-6-top-5-industries-with-highest-average-salaries-and-more-than-100-job-postings">Query 6: Top 5 industries with highest average salaries and more than 100 job postings</h2>
-<div id="6e117c6c" class="cell">
+<div id="2cfc8577" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>result_q6 <span class="op">=</span> spark.sql(<span class="st">&quot;&quot;&quot;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT </span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">        NAICS2_NAME AS industry,</span></span>
@@ -4300,7 +4300,7 @@ vertical-align: -.125em;
 </section>
 <section id="close-spark-session" class="level2">
 <h2 class="anchored" data-anchor-id="close-spark-session">Close Spark Session</h2>
-<div id="6274d25a" class="cell">
+<div id="7d6cfe7f" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>spark.stop()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Spark session stopped.&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
