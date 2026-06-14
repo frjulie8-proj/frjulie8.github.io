@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<title>Minecraft Auto Close – Julie Ngo Tran</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em;
+  vertical-align: middle;
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bba5ebae505b5c03f3f0d8040a416a6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Julie Ngo Tran</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+<span class="menu-text">Home</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+<span class="menu-text">About Me</span></a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-education" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<span class="menu-text">Education</span></a>
+    <ul class="dropdown-menu" aria-labelledby="nav-education">
+      <li><h6 class="dropdown-header">AD688 Big Data &amp; Cloud Analytics</h6></li>
+      <li><a class="dropdown-item" href="../Assignment01/bufrjulie8_system_info.html">Assignment 1</a></li>
+      <li><a class="dropdown-item" href="../Module3Lab1/spark_analysis.html">Module 3 Lab 1</a></li>
+      <li><a class="dropdown-item" href="../A02-frjulie8.html">Assignment 2</a></li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle active" href="#" id="nav-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+<span class="menu-text">Projects</span></a>
+    <ul class="dropdown-menu" aria-labelledby="nav-projects">
+      <li><a class="dropdown-item active" href="../projects/minecraft-auto-close.html">Minecraft Auto Close</a></li>
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Minecraft Auto Close</h1>
+<p class="subtitle lead">macOS Automation Tool</p>
+</div>
+
+<div class="quarto-title-meta">
+  </div>
+
+</header>
+
+<h2>Overview</h2>
+
+<p>Minecraft Auto Close was my first real automation project. I wanted to build something practical that would run on its own without me thinking about it, so I built a macOS tool that automatically closes Minecraft and CurseForge on a configurable schedule. I used AI-assisted coding throughout the process, from designing the architecture to debugging edge cases. The result is a lightweight system that has been running reliably on my Mac every day.</p>
+
+<p>More importantly, this project became a turning point. The pattern I developed here — scheduled process management, configuration files, logging, macOS launchd integration — became a template I have since applied to automate other apps and workflows. It taught me how to combine Python and Bash to deliver real, working tools, not just scripts that run once in a terminal.</p>
+
+<h2>How It Works</h2>
+
+<p>The system has three layers. First, macOS's built-in <code>launchd</code> scheduler triggers a Bash script on a daily schedule. When the script runs, it checks whether Minecraft or CurseForge is currently open. If either app is running and the current time falls within the configured shutdown window, the script sends a native macOS notification as a warning, waits briefly, then force-closes the applications.</p>
+
+<p>The script is designed to be smart about edge cases. It prevents duplicate shutdowns on the same day, handles timezone-aware scheduling, and logs every action for debugging. A separate Python CLI tool lets me pause and resume the auto-close without uninstalling anything, and can sync schedule changes to the launchd agent on the fly.</p>
+
+<h2>Technical Stack</h2>
+
+<p><strong>Bash</strong> — core shutdown logic, process detection via <code>pgrep</code>, force-kill via <code>pkill</code></p>
+
+<p><strong>Python 3</strong> — CLI management tool for pause/resume and schedule sync</p>
+
+<p><strong>macOS launchd</strong> — native job scheduling (replaces cron on macOS)</p>
+
+<p><strong>osascript</strong> — native macOS notifications with sound alerts</p>
+
+<h2>Key Features</h2>
+
+<p><strong>Configurable schedule:</strong> shutdown hour, minute, and timezone are all set in a single config file.</p>
+
+<p><strong>Pause and resume:</strong> temporarily disable auto-close without touching any system files, then re-enable with one command.</p>
+
+<p><strong>Activity logging:</strong> every action is timestamped and written to <code>~/Library/Logs/</code> for easy debugging.</p>
+
+<p><strong>Duplicate prevention:</strong> the script tracks whether it has already run today, so it never kills apps twice.</p>
+
+<p><strong>Live schedule sync:</strong> change the shutdown time in the config file and run one command to update the launchd agent automatically.</p>
+
+<h2>What I Learned</h2>
+
+<p>This project was my introduction to thinking about software as something that runs unattended. I learned how macOS manages background processes, how to write Bash scripts that handle real-world edge cases, and how to use Python as a control layer on top of shell automation. Working with AI-assisted coding tools on this project showed me how to move from idea to shipped tool quickly, and gave me confidence to apply the same approach to other automation challenges.</p>
+
+<h2>Source Code</h2>
+
+<p><a href="https://github.com/frjulie8-proj" target="_blank">View on GitHub</a></p>
+
+
+</main> <!-- /main -->
+</div> <!-- /content -->
+
+</body></html>
