@@ -8,7 +8,7 @@
 
 <meta name="author" content="Julie">
 
-<title>Assignment 01 – website</title>
+<title>Assignment 01 – Julie Ngo Tran</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -3997,6 +3997,127 @@ vertical-align: -.125em;
 
 
 <style type="text/css">
+:root {
+--accent: #e94560;
+--ink: #16213e;
+--deep: #0f3460;
+--muted: #5b6472;
+--surface: #f8f9fa;
+}
+
+.hero {
+padding: 3.5rem 0 2.5rem 0;
+border-bottom: 1px solid #e7e9ee;
+margin-bottom: 2.5rem;
+}
+.hero h1 {
+font-family: Georgia, "Times New Roman", serif;
+font-size: 3rem;
+font-weight: 700;
+color: var(--ink);
+margin-bottom: 0.25rem;
+letter-spacing: -0.5px;
+}
+.hero .tagline {
+font-size: 1.2rem;
+color: var(--deep);
+font-weight: 600;
+margin-bottom: 1.25rem;
+}
+.hero p {
+font-size: 1.05rem;
+color: var(--muted);
+max-width: 46rem;
+line-height: 1.7;
+}
+
+.hero-actions { margin-top: 1.5rem; }
+.btn-accent {
+background: var(--accent);
+border-color: var(--accent);
+color: #fff;
+font-weight: 600;
+padding: 0.5rem 1.1rem;
+margin: 0 0.4rem 0.5rem 0;
+}
+.btn-accent:hover { background: #d12f4a; border-color: #d12f4a; color: #fff; }
+.btn-outline {
+border: 1.5px solid var(--deep);
+color: var(--deep);
+font-weight: 600;
+padding: 0.5rem 1.1rem;
+margin: 0 0.4rem 0.5rem 0;
+}
+.btn-outline:hover { background: var(--deep); color: #fff; }
+
+.section-title {
+font-family: Georgia, serif;
+color: var(--ink);
+border-left: 4px solid var(--accent);
+padding-left: 0.75rem;
+margin: 2.5rem 0 1.25rem 0;
+}
+
+.project-card {
+background: #fff;
+border: 1px solid #e7e9ee;
+border-radius: 10px;
+padding: 1.4rem 1.5rem;
+box-shadow: 0 1px 3px rgba(16,33,62,0.05);
+transition: transform 0.15s ease, box-shadow 0.15s ease;
+height: 100%;
+}
+.project-card:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 22px rgba(16,33,62,0.10);
+}
+.project-card h4 {
+color: var(--deep);
+font-size: 1.15rem;
+margin-bottom: 0.5rem;
+}
+.project-card .meta {
+display: block;
+font-size: 0.8rem;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+color: var(--accent);
+font-weight: 700;
+margin-bottom: 0.4rem;
+}
+.project-card p { color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+
+.skills { margin: 0.5rem 0 1.5rem 0; line-height: 2.4; }
+.skill {
+display: inline-block;
+background: var(--surface);
+border: 1px solid #dde1e7;
+color: var(--ink);
+border-radius: 20px;
+padding: 0.3rem 0.85rem;
+font-size: 0.9rem;
+font-weight: 500;
+margin: 0 0.35rem 0.5rem 0;
+}
+
+.award {
+background: linear-gradient(135deg, #fff5f6, #fef0ec);
+border: 1px solid #f6c6cf;
+border-radius: 10px;
+padding: 1.3rem 1.5rem;
+margin: 1.5rem 0;
+}
+.award h4 { color: var(--accent); margin-bottom: 0.4rem; }
+.award p { color: var(--ink); margin-bottom: 0; }
+
+.edu-item {
+border-left: 3px solid var(--deep);
+padding: 0.25rem 0 0.75rem 1.25rem;
+margin-bottom: 1.5rem;
+}
+.edu-item h4 { color: var(--ink); margin-bottom: 0.15rem; }
+.edu-item .school { color: var(--deep); font-weight: 600; }
+.edu-item .when { color: var(--muted); font-size: 0.9rem; }
 </style>
 </head>
 
@@ -4008,7 +4129,7 @@ vertical-align: -.125em;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">website</span>
+    <span class="navbar-title">Julie Ngo Tran</span>
     </a>
   </div>
             <div id="quarto-search" class title="Search"></div>
@@ -4024,6 +4145,10 @@ vertical-align: -.125em;
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../education.html"> 
+<span class="menu-text">Education</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -4056,6 +4181,23 @@ vertical-align: -.125em;
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/julie-ngo-tran-110560220/"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/frjulie8-proj"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:fromjuliefr@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4504,6 +4646,19 @@ vertical-align: -.125em;
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Julie Ngo Tran</p>
+</div>   
+    <div class="nav-footer-center">
+       
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
 
 
 

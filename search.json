@@ -2,16 +2,51 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Julie Ngo Tran | Cloud Computing & Big Data",
+    "title": "Julie Ngo Tran",
     "section": "",
-    "text": "This is Julie Ngo Tran’s course website for Cloud Computing and Big Data at Boston University MET, Summer 2026.\nUse the navbar above to navigate assignments and lab work."
+    "text": "M.S. Applied Business Analytics @ Boston University\nI am a data analyst and graduate student who turns large, messy datasets into decisions. I work across the full analytics workflow, from building ETL pipelines and statistical models to benchmarking machine learning approaches and translating their outputs into clear business recommendations. My recent work spans behavioral economics, real estate valuation, and income classification, using Python and R on datasets ranging from tens of thousands to millions of records.\n\nView Projects LinkedIn GitHub Email"
+  },
+  {
+    "objectID": "index.html#featured-work",
+    "href": "index.html#featured-work",
+    "title": "Julie Ngo Tran",
+    "section": "Featured Work",
+    "text": "Featured Work\n\n\n\nPython · scikit-learn\n\nBoston Property Assessment\nI benchmarked seven regression model families using five fold cross validation to predict residential property values. Random Forest delivered the strongest result, reaching a cross validated RMSE of USD 252,792 against a baseline of USD 500,564, roughly halving the prediction error.\n\n\n\n\n\nR · tidyverse\n\nBushwick NYC Real Estate\nI fit a multiple linear regression model on a transaction dataset of more than two million records, then used residual analysis to surface undervalued properties in the Bushwick neighborhood of Brooklyn.\n\n\n\n\n\nPython · XGBoost\n\nCensus Income Classification\nI built a gradient boosted classifier that reached 84 percent accuracy on a 48,842 record census dataset, handling class imbalance to keep the model honest on the minority class.\n\n\n\n\n\nPython · launchd · Bash\n\nMinecraft Auto Close\nMy first shipped automation tool, a macOS utility that closes Minecraft and CurseForge on a configurable schedule, built around scheduled process management, logging, and launchd. Read more.\n\n\n\n\nCoursework and lab projects from my Boston University program are collected under the Projects menu above."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
-    "text": "About this site"
+    "text": "I am Julie Ngo Tran, a graduate student in Applied Business Analytics at Boston University and a data analyst based in the New York City metropolitan area. I enjoy the part of analytics where a question becomes a dataset, a dataset becomes a model, and a model becomes a recommendation that someone can actually act on. My background spans the entire workflow, from extracting and cleaning raw data, through statistical modeling and multi model benchmarking, to interpreting results and communicating them to a non technical audience.\nMost recently I led the machine learning work for the team that won first place at the Applied Business Analytics Hackathon 2026 at Boston University MET, where we predicted streaming subscription upgrade behavior across 1.17M behavioral economics records. That project is a good summary of how I like to work, combining several modeling approaches, comparing them honestly, and using SHAP analysis to explain why the model makes the predictions it does rather than treating it as a black box."
+  },
+  {
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": "About Me",
+    "section": "Technical Skills",
+    "text": "Technical Skills\n\nPython pandas scikit-learn XGBoost NumPy R tidyverse ggplot2 SQL ETL SHAP Statistical Modeling Machine Learning Cloud Analytics Apache Spark"
+  },
+  {
+    "objectID": "about.html#languages",
+    "href": "about.html#languages",
+    "title": "About Me",
+    "section": "Languages",
+    "text": "Languages\nI am trilingual and work comfortably in English, French, and Vietnamese."
+  },
+  {
+    "objectID": "about.html#currently-looking-for",
+    "href": "about.html#currently-looking-for",
+    "title": "About Me",
+    "section": "Currently Looking For",
+    "text": "Currently Looking For\nI am open to Business Intelligence Engineer, Business Analyst, and Data Analyst internships for the Fall 2026 and Spring 2027 terms, on site, hybrid, or remote."
+  },
+  {
+    "objectID": "about.html#get-in-touch",
+    "href": "about.html#get-in-touch",
+    "title": "About Me",
+    "section": "Get in Touch",
+    "text": "Get in Touch\nThe best way to reach me is by email at fromjuliefr@gmail.com. You can also find me on LinkedIn and GitHub."
   },
   {
     "objectID": "Module3Lab1/spark_analysis.html",
@@ -145,6 +180,34 @@
     "title": "Assignment 03 — Big Data Visualization on Scale",
     "section": "Section 5 — Salary by Remote Work Type",
     "text": "Section 5 — Salary by Remote Work Type\nMethodology and justification. The remote field contains the values Remote, Hybrid Remote, Not Remote, the placeholder None, and a few nulls. Following the three way split requested by the assignment, Hybrid Remote is mapped to the Hybrid group while every value that is neither Remote nor Hybrid, which includes Not Remote, None, and the nulls, is treated as Onsite. Before plotting, the small number of salaries above the ninety ninth percentile, which is roughly one hundred eighty three thousand dollars, are removed so that a sparse tail of extreme values reaching about seven hundred fifty thousand dollars does not compress the rest of the distribution into a single unreadable spike.\n\n# Select only needed columns before toPandas\ndf5 = df.filter(\n    col('MAX_YEARS_EXPERIENCE').isNotNull() &\n    col('Average_Salary').isNotNull() &\n    col('LOT_V6_SPECIALIZED_OCCUPATION_NAME').isNotNull()\n).select(\n    col('MAX_YEARS_EXPERIENCE'),\n    col('Average_Salary'),\n    col('LOT_V6_SPECIALIZED_OCCUPATION_NAME'),\n    col('REMOTE_TYPE_NAME')\n)\n\n# Values in data: 'Remote', 'Hybrid Remote', 'Not Remote', '[None]', null.\ndf5 = df5.withColumn(\n    'REMOTE_GROUP',\n    when(col('REMOTE_TYPE_NAME') == 'Remote', 'Remote')\n    .when(col('REMOTE_TYPE_NAME') == 'Hybrid Remote', 'Hybrid')\n    .otherwise('Onsite')\n)\n\npdf5 = df5.select(\n    'MAX_YEARS_EXPERIENCE', 'Average_Salary',\n    'LOT_V6_SPECIALIZED_OCCUPATION_NAME', 'REMOTE_GROUP'\n).toPandas()\n\nprint(pdf5['REMOTE_GROUP'].value_counts())\nprint(pdf5.head())\n\n\n[Stage 26:&gt;                                                         (0 + 1) / 1]\n\n\nREMOTE_GROUP\nOnsite    6535\nRemote    1612\nHybrid     283\nName: count, dtype: int64\n   MAX_YEARS_EXPERIENCE  Average_Salary LOT_V6_SPECIALIZED_OCCUPATION_NAME  \\\n0                   2.0        109520.0   General ERP Analyst / Consultant   \n1                   3.0        109520.0        Oracle Consultant / Analyst   \n2                   7.0        109520.0   General ERP Analyst / Consultant   \n3                   2.0         92962.0                       Data Analyst   \n4                   5.0        109520.0                       Data Analyst   \n\n  REMOTE_GROUP  \n0       Onsite  \n1       Remote  \n2       Onsite  \n3       Onsite  \n4       Remote  \n\n\n\n                                                                                \n\n\n\nremote_groups = ['Remote', 'Hybrid', 'Onsite']\nremote_insights = {\n    'Remote':  'Remote postings (~12,500) pay on par with or slightly above onsite roles, clustering near the '\n               'USD 110K mark with a solid share of higher-paid specialized positions. Employers appear willing to '\n               'pay competitively to hire without geographic limits.',\n    'Hybrid':  'Hybrid (\"Hybrid Remote\") is the smallest segment at ~2,300 postings and skews toward specialized '\n               'BI and engineering occupations. Its salary distribution tracks the fully-remote group, suggesting '\n               'the two compete for the same talent pool.',\n    'Onsite':  'Onsite (including unspecified and \"Not Remote\") is by far the largest group at ~57,700 postings '\n               'and shows the widest salary spread, spanning entry-level to senior pay across every occupation. '\n               'Its sheer volume produces the long right tail seen in the histogram below.'\n}\n\n# Trim extreme high-salary outliers (top 1%) so charts are not skewed by a\n# sparse tail that runs out to ~$750K. Applied to all Section 5 visuals.\nsalary_cap = pdf5['Average_Salary'].quantile(0.99)\npdf5 = pdf5[pdf5['Average_Salary'] &lt;= salary_cap].copy()\nprint(f'Trimmed salaries above the 99th percentile (${salary_cap:,.0f}); rows kept: {len(pdf5)}')\n\n# Scatter plots per remote group\nfor group in remote_groups:\n    subset = pdf5[pdf5['REMOTE_GROUP'] == group].copy()\n    if subset.empty:\n        print(f'No rows for {group}; skipping.')\n        continue\n    subset['JITTER_X'] = subset['MAX_YEARS_EXPERIENCE'] + np.random.uniform(-0.3, 0.3, len(subset))\n\n    fig = px.scatter(\n        subset,\n        x='JITTER_X',\n        y='Average_Salary',\n        color='LOT_V6_SPECIALIZED_OCCUPATION_NAME',\n        title=f'Salary by Remote Work Type: {group}',\n        labels={\n            'JITTER_X': 'Max Years Experience (jittered)',\n            'Average_Salary': 'Average Salary ($)',\n            'LOT_V6_SPECIALIZED_OCCUPATION_NAME': 'Occupation'\n        },\n        opacity=0.7,\n        height=500\n    )\n    fig.update_layout(\n        height=680,\n        margin=dict(t=70, b=200),\n        xaxis_title_standoff=12,\n        legend=dict(orientation='h', yanchor='top', y=-0.22,\n                    x=0.5, xanchor='center', title_text='')\n    )\n    fig.show()\n    display(Markdown(f\"**Insight ({group}):** {remote_insights[group]}\"))\n\n# Salary histogram for all three groups (outliers already trimmed above)\nfig_hist = px.histogram(\n    pdf5,\n    x='Average_Salary',\n    color='REMOTE_GROUP',\n    barmode='overlay',\n    opacity=0.65,\n    nbins=60,\n    title='Salary Distribution by Remote Work Type',\n    labels={'Average_Salary': 'Average Salary ($)', 'REMOTE_GROUP': 'Work Type'}\n)\nfig_hist.update_layout(height=520, margin=dict(t=70))\nfig_hist.show()\ndisplay(Markdown(\n    f\"**Histogram insight:** with extreme salaries above USD {salary_cap:,.0f} removed, all three groups \"\n    \"peak near the imputed USD 109K median; Remote and Hybrid sit slightly higher and tighter than Onsite, \"\n    \"while Onsite still shows the widest spread because of its far larger count.\"))\n\nTrimmed salaries above the 99th percentile ($183,250); rows kept: 8346\n\n\n                                                    \n\n\nInsight (Remote): Remote postings (~12,500) pay on par with or slightly above onsite roles, clustering near the USD 110K mark with a solid share of higher-paid specialized positions. Employers appear willing to pay competitively to hire without geographic limits.\n\n\n                                                    \n\n\nInsight (Hybrid): Hybrid (“Hybrid Remote”) is the smallest segment at ~2,300 postings and skews toward specialized BI and engineering occupations. Its salary distribution tracks the fully-remote group, suggesting the two compete for the same talent pool.\n\n\n                                                    \n\n\nInsight (Onsite): Onsite (including unspecified and “Not Remote”) is by far the largest group at ~57,700 postings and shows the widest salary spread, spanning entry-level to senior pay across every occupation. Its sheer volume produces the long right tail seen in the histogram below.\n\n\n                                                    \n\n\nHistogram insight: with extreme salaries above USD 183,250 removed, all three groups peak near the imputed USD 109K median; Remote and Hybrid sit slightly higher and tighter than Onsite, while Onsite still shows the widest spread because of its far larger count."
+  },
+  {
+    "objectID": "education.html",
+    "href": "education.html",
+    "title": "Education",
+    "section": "",
+    "text": "Metropolitan College, Boston University In progress\nI am pursuing my M.S. in Applied Business Analytics, a program centered on turning data into business decisions. My coursework has given me hands on experience across the full analytics workflow, including building ETL pipelines, statistical modeling, multi model benchmarking with cross validation, big data processing with Apache Spark, and cloud analytics. Throughout the program I have focused on not just fitting models but explaining them and tying their outputs back to a concrete business question."
+  },
+  {
+    "objectID": "education.html#boston-university",
+    "href": "education.html#boston-university",
+    "title": "Education",
+    "section": "",
+    "text": "Metropolitan College, Boston University In progress\nI am pursuing my M.S. in Applied Business Analytics, a program centered on turning data into business decisions. My coursework has given me hands on experience across the full analytics workflow, including building ETL pipelines, statistical modeling, multi model benchmarking with cross validation, big data processing with Apache Spark, and cloud analytics. Throughout the program I have focused on not just fitting models but explaining them and tying their outputs back to a concrete business question."
+  },
+  {
+    "objectID": "education.html#honors",
+    "href": "education.html#honors",
+    "title": "Education",
+    "section": "Honors",
+    "text": "Honors\n\n🏆 1st Place — Applied Business Analytics Hackathon 2026\nBoston University Metropolitan College. My team built an end to end machine learning pipeline on 1.17M behavioral economics records to predict streaming subscription upgrade behavior, using Python, Logistic Regression, Random Forest, XGBoost, and SHAP analysis."
+  },
+  {
+    "objectID": "education.html#selected-coursework-and-lab-projects",
+    "href": "education.html#selected-coursework-and-lab-projects",
+    "title": "Education",
+    "section": "Selected Coursework and Lab Projects",
+    "text": "Selected Coursework and Lab Projects\nThe hands on work from my program is published on this site under the Projects menu. It includes a Spark big data analysis, cloud and systems assignments, and a visual reporting and storytelling lab covering nine data visualizations. Together these projects trace the path from raw data and infrastructure through analysis to a finished, communicated result."
   },
   {
     "objectID": "Module4Lab1/lab06_frjulie8.html",
