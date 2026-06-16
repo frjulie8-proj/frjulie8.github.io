@@ -1,0 +1,25 @@
+---
+title: "Education"
+toc: true
+---
+
+## Boston University {.section-title}
+
+::: {.edu-item}
+#### Master of Science, Applied Business Analytics
+[Metropolitan College, Boston University]{.school}<br>
+[In progress]{.when}
+
+I am pursuing my M.S. in Applied Business Analytics, a program centered on turning data into business decisions. My coursework has given me hands on experience across the full analytics workflow, including building ETL pipelines, statistical modeling, multi model benchmarking with cross validation, big data processing with Apache Spark, and cloud analytics. Throughout the program I have focused on not just fitting models but explaining them and tying their outputs back to a concrete business question.
+:::
+
+## Honors {.section-title}
+
+::: {.award}
+#### 🏆 1st Place — Applied Business Analytics Hackathon 2026
+Boston University Metropolitan College. My team built an end to end machine learning pipeline on 1.17M behavioral economics records to predict streaming subscription upgrade behavior, using Python, Logistic Regression, Random Forest, XGBoost, and SHAP analysis.
+:::
+
+## Selected Coursework and Lab Projects {.section-title}
+
+The hands on work from my program is published on this site under the **Projects** menu. It includes a Spark big data analysis, cloud and systems assignments, and a visual reporting and storytelling lab covering nine data visualizations. Together these projects trace the path from raw data and infrastructure through analysis to a finished, communicated result.

@@ -1,5 +1,40 @@
 ---
-title: "About"
+title: "About Me"
+toc: true
 ---
 
-About this site
+I am Julie Ngo Tran, a graduate student in Applied Business Analytics at Boston University and a data analyst based in the New York City metropolitan area. I enjoy the part of analytics where a question becomes a dataset, a dataset becomes a model, and a model becomes a recommendation that someone can actually act on. My background spans the entire workflow, from extracting and cleaning raw data, through statistical modeling and multi model benchmarking, to interpreting results and communicating them to a non technical audience.
+
+Most recently I led the machine learning work for the team that won first place at the Applied Business Analytics Hackathon 2026 at Boston University MET, where we predicted streaming subscription upgrade behavior across 1.17M behavioral economics records. That project is a good summary of how I like to work, combining several modeling approaches, comparing them honestly, and using SHAP analysis to explain why the model makes the predictions it does rather than treating it as a black box.
+
+## Technical Skills {.section-title}
+
+::: {.skills}
+[Python]{.skill}
+[pandas]{.skill}
+[scikit-learn]{.skill}
+[XGBoost]{.skill}
+[NumPy]{.skill}
+[R]{.skill}
+[tidyverse]{.skill}
+[ggplot2]{.skill}
+[SQL]{.skill}
+[ETL]{.skill}
+[SHAP]{.skill}
+[Statistical Modeling]{.skill}
+[Machine Learning]{.skill}
+[Cloud Analytics]{.skill}
+[Apache Spark]{.skill}
+:::
+
+## Languages {.section-title}
+
+I am trilingual and work comfortably in English, French, and Vietnamese.
+
+## Currently Looking For {.section-title}
+
+I am open to Business Intelligence Engineer, Business Analyst, and Data Analyst internships for the Fall 2026 and Spring 2027 terms, on site, hybrid, or remote.
+
+## Get in Touch {.section-title}
+
+The best way to reach me is by email at [fromjuliefr@gmail.com](mailto:fromjuliefr@gmail.com). You can also find me on [LinkedIn](https://www.linkedin.com/in/julie-ngo-tran-110560220/) and [GitHub](https://github.com/frjulie8-proj).

@@ -1,1 +1,130 @@
-/* css styles */
+/* ===== Portfolio styles ===== */
+
+:root {
+  --accent: #e94560;
+  --ink: #16213e;
+  --deep: #0f3460;
+  --muted: #5b6472;
+  --surface: #f8f9fa;
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding: 3.5rem 0 2.5rem 0;
+  border-bottom: 1px solid #e7e9ee;
+  margin-bottom: 2.5rem;
+}
+.hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.5px;
+}
+.hero .tagline {
+  font-size: 1.2rem;
+  color: var(--deep);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+.hero p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 46rem;
+  line-height: 1.7;
+}
+
+/* ---- Buttons ---- */
+.hero-actions { margin-top: 1.5rem; }
+.btn-accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  margin: 0 0.4rem 0.5rem 0;
+}
+.btn-accent:hover { background: #d12f4a; border-color: #d12f4a; color: #fff; }
+.btn-outline {
+  border: 1.5px solid var(--deep);
+  color: var(--deep);
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  margin: 0 0.4rem 0.5rem 0;
+}
+.btn-outline:hover { background: var(--deep); color: #fff; }
+
+/* ---- Section headings ---- */
+.section-title {
+  font-family: Georgia, serif;
+  color: var(--ink);
+  border-left: 4px solid var(--accent);
+  padding-left: 0.75rem;
+  margin: 2.5rem 0 1.25rem 0;
+}
+
+/* ---- Project cards ---- */
+.project-card {
+  background: #fff;
+  border: 1px solid #e7e9ee;
+  border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(16,33,62,0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(16,33,62,0.10);
+}
+.project-card h4 {
+  color: var(--deep);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+.project-card .meta {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.project-card p { color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+
+/* ---- Skill tags ---- */
+.skills { margin: 0.5rem 0 1.5rem 0; line-height: 2.4; }
+.skill {
+  display: inline-block;
+  background: var(--surface);
+  border: 1px solid #dde1e7;
+  color: var(--ink);
+  border-radius: 20px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0 0.35rem 0.5rem 0;
+}
+
+/* ---- Award callout ---- */
+.award {
+  background: linear-gradient(135deg, #fff5f6, #fef0ec);
+  border: 1px solid #f6c6cf;
+  border-radius: 10px;
+  padding: 1.3rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.award h4 { color: var(--accent); margin-bottom: 0.4rem; }
+.award p { color: var(--ink); margin-bottom: 0; }
+
+/* ---- Education timeline ---- */
+.edu-item {
+  border-left: 3px solid var(--deep);
+  padding: 0.25rem 0 0.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.edu-item h4 { color: var(--ink); margin-bottom: 0.15rem; }
+.edu-item .school { color: var(--deep); font-weight: 600; }
+.edu-item .when { color: var(--muted); font-size: 0.9rem; }

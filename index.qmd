@@ -1,7 +1,72 @@
 ---
-title: "Julie Ngo Tran | Cloud Computing & Big Data"
+pagetitle: "Julie Ngo Tran | Applied Business Analytics"
+toc: false
 ---
 
-This is Julie Ngo Tran's course website for **Cloud Computing and Big Data** at **Boston University MET, Summer 2026**.
+::: {.hero}
+# Julie Ngo Tran
 
-Use the navbar above to navigate assignments and lab work.
+[M.S. Applied Business Analytics @ Boston University]{.tagline}
+
+I am a data analyst and graduate student who turns large, messy datasets into decisions. I work across the full analytics workflow, from building ETL pipelines and statistical models to benchmarking machine learning approaches and translating their outputs into clear business recommendations. My recent work spans behavioral economics, real estate valuation, and income classification, using Python and R on datasets ranging from tens of thousands to millions of records.
+
+::: {.hero-actions}
+[View Projects](#featured-work){.btn .btn-accent role="button"}
+[LinkedIn](https://www.linkedin.com/in/julie-ngo-tran-110560220/){.btn .btn-outline role="button" target="_blank"}
+[GitHub](https://github.com/frjulie8-proj){.btn .btn-outline role="button" target="_blank"}
+[Email](mailto:fromjuliefr@gmail.com){.btn .btn-outline role="button"}
+:::
+:::
+
+::: {.award}
+#### 🏆 1st Place — Applied Business Analytics Hackathon 2026, Boston University MET
+With my team, I built an end-to-end machine learning pipeline on 1.17M behavioral economics records to predict streaming subscription upgrade behavior, using Python, Logistic Regression, Random Forest, XGBoost, and SHAP analysis for interpretability.
+:::
+
+## Featured Work {#featured-work .section-title}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+[Python · scikit-learn]{.meta}
+
+#### Boston Property Assessment
+
+I benchmarked seven regression model families using five fold cross validation to predict residential property values. Random Forest delivered the strongest result, reaching a cross validated RMSE of USD 252,792 against a baseline of USD 500,564, roughly halving the prediction error.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+[R · tidyverse]{.meta}
+
+#### Bushwick NYC Real Estate
+
+I fit a multiple linear regression model on a transaction dataset of more than two million records, then used residual analysis to surface undervalued properties in the Bushwick neighborhood of Brooklyn.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+[Python · XGBoost]{.meta}
+
+#### Census Income Classification
+
+I built a gradient boosted classifier that reached 84 percent accuracy on a 48,842 record census dataset, handling class imbalance to keep the model honest on the minority class.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+[Python · launchd · Bash]{.meta}
+
+#### Minecraft Auto Close
+
+My first shipped automation tool, a macOS utility that closes Minecraft and CurseForge on a configurable schedule, built around scheduled process management, logging, and launchd. [Read more](projects/minecraft-auto-close.qmd).
+:::
+:::
+
+:::
+
+Coursework and lab projects from my Boston University program are collected under the **Projects** menu above.
