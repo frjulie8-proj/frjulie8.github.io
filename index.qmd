@@ -19,7 +19,7 @@ I am a data analyst and graduate student who turns large, messy datasets into de
 :::
 
 ::: {.award}
-#### 🏆 1st Place — Applied Business Analytics Hackathon 2026, Boston University MET
+#### 🏆 1st Place, Applied Business Analytics Hackathon 2026, Boston University MET
 With my team, I built an end-to-end machine learning pipeline on 1.17M behavioral economics records to predict streaming subscription upgrade behavior, using Python, Logistic Regression, Random Forest, XGBoost, and SHAP analysis for interpretability.
 :::
 
