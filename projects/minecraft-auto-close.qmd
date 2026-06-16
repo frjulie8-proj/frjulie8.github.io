@@ -1,0 +1,32 @@
+---
+title: "Minecraft Auto Close"
+subtitle: "macOS Automation Tool"
+---
+
+## Overview
+
+Minecraft Auto Close was my first real automation project. I wanted to build something practical that would run on its own without me thinking about it, so I built a macOS tool that automatically closes Minecraft and CurseForge on a configurable schedule. I used AI-assisted coding throughout the process, from designing the architecture to debugging edge cases. The result is a lightweight system that has been running reliably on my Mac every day.
+
+More importantly, this project became a turning point. The pattern I developed here, scheduled process management, configuration files, logging, and macOS launchd integration, became a template I have since applied to automate other apps and workflows. It taught me how to combine Python and Bash to deliver real, working tools, not just scripts that run once in a terminal.
+
+## How It Works
+
+The system has three layers. First, macOS's built-in launchd scheduler triggers a Bash script on a daily schedule. When the script runs, it checks whether Minecraft or CurseForge is currently open. If either app is running and the current time falls within the configured shutdown window, the script sends a native macOS notification as a warning, waits briefly, then force-closes the applications.
+
+The script is designed to be smart about edge cases. It prevents duplicate shutdowns on the same day, handles timezone-aware scheduling, and logs every action for debugging. A separate Python CLI tool lets me pause and resume the auto-close without uninstalling anything, and can sync schedule changes to the launchd agent on the fly.
+
+## Technical Stack
+
+Bash powers the core shutdown logic, with process detection via pgrep and force-kill via pkill. Python 3 provides the CLI management tool for pause, resume, and schedule sync. macOS launchd handles native job scheduling, replacing cron on macOS, and osascript delivers native macOS notifications with sound alerts.
+
+## Key Features
+
+The shutdown hour, minute, and timezone are all set in a single config file. Pause and resume let me temporarily disable auto-close without touching any system files, then re-enable with one command. Every action is timestamped and written to `~/Library/Logs/` for easy debugging. Duplicate prevention means the script tracks whether it has already run today, so it never kills apps twice. Live schedule sync lets me change the shutdown time in the config file and run one command to update the launchd agent automatically.
+
+## What I Learned
+
+This project was my introduction to thinking about software as something that runs unattended. I learned how macOS manages background processes, how to write Bash scripts that handle real-world edge cases, and how to use Python as a control layer on top of shell automation. Working with AI-assisted coding tools on this project showed me how to move from idea to shipped tool quickly, and gave me confidence to apply the same approach to other automation challenges.
+
+## Source Code
+
+[View on GitHub](https://github.com/frjulie8-proj/minecraft-auto-close)

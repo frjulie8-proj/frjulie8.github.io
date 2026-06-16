@@ -15,6 +15,10 @@ website:
         text: Assignment 2
       - href: A03-frjulie8.ipynb
         text: Assignment 3
+      - text: Projects
+        menu:
+          - href: "projects/minecraft-auto-close.qmd"
+            text: Minecraft Auto Close
 format:
   html:
     theme:
