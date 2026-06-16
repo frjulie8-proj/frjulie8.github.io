@@ -7,18 +7,18 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - href: "Assignment 01/bufrjulie8_system_info.qmd"
-        text: Assignment 1
-      - href: "Module3Lab1/spark_analysis.qmd"
-        text: Module 3 Lab 1
-      - href: A02-frjulie8.ipynb
-        text: Assignment 2
-      - href: A03-frjulie8.ipynb
-        text: Assignment 3
       - text: Projects
         menu:
           - href: "projects/minecraft-auto-close.qmd"
             text: Minecraft Auto Close
+          - href: "Assignment 01/bufrjulie8_system_info.qmd"
+            text: Assignment 1
+          - href: "Module3Lab1/spark_analysis.qmd"
+            text: Module 3 Lab 1
+          - href: A02-frjulie8.ipynb
+            text: Assignment 2
+          - href: A03-frjulie8.ipynb
+            text: Assignment 3
 format:
   html:
     theme:
