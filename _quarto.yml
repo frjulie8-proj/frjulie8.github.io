@@ -19,6 +19,8 @@ website:
             text: Assignment 2
           - href: A03-frjulie8.ipynb
             text: Assignment 3
+          - href: "Module4Lab1/lab06_frjulie8.ipynb"
+            text: Module 4 Lab 1
 format:
   html:
     theme:
